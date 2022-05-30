@@ -4,19 +4,19 @@
   <%# <ul> %>
     <% @lists.each do |list| %>
       <%# <li> %>
-      <%# raise %>
       <div class="col-12 col-md-4 col-xl-3">
         <div class="card" style="width: 18rem;">
-
           <% if list.photo.attached? %>
-            <%= cl_image_tag list.photo.key, class: "card-img-top" %>
+            <%= cl_image_tag list.photo.key, class: "card-img-top", alt:"sweet seo" %>
           <% end %>
-
-
           <div class="card-body">
-            <h5 class="card-title"><%= link_to list.name, list %></h5>
-            <p class="card-text"></p>
-            <a href="#" class="btn btn-primary"></a>
+            <h3><%= link_to list.name, list, class:"text-decoration-none" %></h3>
+            <p><%= link_to 'edit', edit_list_path(list), class:"btn btn-outline-warning btn-sm" %></p>
+            <p><%= link_to 'delete',
+              lists_path(list),
+              method: :destroy,
+              data: { confirm: "Are you sure?" },
+              class:"btn btn-outline-danger btn-sm" %></p>
           </div>
         </div>
       </div>
