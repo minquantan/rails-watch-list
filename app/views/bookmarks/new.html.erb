@@ -1,7 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <%= simple_form_for ([@list, @bookmark]) do |f| %>
+        <%= f.input :comment %>
+        <%= f.input :movie_id, collection: @movie_choices, value_method: :id %>
+        <%# <%= f.input :list_id, value="#{@list.id}" %> %>
+        <%= f.submit "Submit new Bookmark", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 <h2>Create new Bookmark</h2>
-<%= simple_form_for ([@list, @bookmark]) do |f| %>
-  <%= f.input :comment %>
-  <%= f.input :movie_id, collection: @movie_choices, value_method: :id %>
-  <%# <%= f.input :list_id, value="#{@list.id}" %> %>
-  <%= f.submit "Submit new Bookmark", class: "btn btn-primary" %>
-<% end %>
